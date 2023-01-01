@@ -39,7 +39,6 @@ const App = () => {
     setPosts(results.data.posts);
   }
   
-  
   async function handleUser() {
     const storedToken = window.localStorage.getItem('token');
     

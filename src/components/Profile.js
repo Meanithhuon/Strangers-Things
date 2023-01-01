@@ -9,12 +9,14 @@ const Profile = ({ user}) => {
       {user._id ? <h2>Welcome  {user.username}</h2>: null}
       <p>  You must be registered and logged in to read and send messages.</p>
         <div>
-        <h2 className = 'messagesReceived allPost'>Your Messages:</h2>
+        <h2>Your Messages:</h2>
         {
           messages && messages.map(message => {
             const fromUserID = message.fromUser._id;
             const {username} = message.fromUser
             const {title} = message.post;
+
+            // Authenticated user can see all messages for any post for which they are the author
             
             if (userID !== fromUserID) {
               return (
@@ -29,7 +31,7 @@ const Profile = ({ user}) => {
         }
       </div>
       <div>
-      <h2 className='messagesSent allPost'> Messages That You Sent:
+      <h2> Messages That You Sent:
       <br></br>
       <p>(You must refresh your browser to see messages that you sent.)</p>
       </h2>

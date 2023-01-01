@@ -11,7 +11,7 @@ const Navbar = ({ logout, token }) => {
         <Link to='/posts/post'>Create A New Posting</Link>
         
         
-        {/* if user has token, give option to log out */}
+        {/* if user has token, send user to to default path and give option to log out */}
         {/* if user does not have token, have user register first and log in  */}
         {
           token ? (

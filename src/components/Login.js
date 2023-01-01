@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { loginUser } from '../api';
 
-// Login sets the token on state and in localStorage)
+// Unauthenticated user can sign in with correct username/password combination
+// Login sets the token on state and in localStorage
+// After user login, send user to profile page
 
 const Login = ({ setToken, navigate }) => {
   const [username, setUsername] = useState('');

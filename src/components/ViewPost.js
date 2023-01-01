@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { SendMessage } from '../api';
 
+//Authenticated users can see all messages they've received in a special view
+// Authenticated users can see all messages for any post for which they are the author
 // Function to send a message to the post author
 const NewMessage = ({ POST_ID, token, navigate }) => {
   const [message, setMessage] = useState({content: ''});
@@ -43,14 +45,11 @@ const ViewPost = ({ posts, token }) => {
 
       {/* User can send a message only if there is a logged in user and the logged in user is not the one who made post */}
       <button   disabled={!token} >CONTACT THE AUTHOR OF THIS POSTING</button>
-
- 
       {
       !currentPost.isAuthor ? ( <NewMessage POST_ID={POST_ID} token={token}/>) : (null)
       }
     </>
   )
 }
-
 
 export default ViewPost;

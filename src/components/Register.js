@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { register } from '../api';
 
-
+// Unauthenticated Users can sign up for an account with username and password
 const Register = ({ setToken, navigate }) => {
-  // props.setToken
-  // const {setToken} = props
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-
 //  Store token on state and in localStorage to save it for automatically logging in the user upon the next app load
+// After user registers, send user to login page
 
   const handleSubmit = async () => {
     const results = await register(username, password);

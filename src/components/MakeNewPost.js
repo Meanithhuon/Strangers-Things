@@ -3,6 +3,8 @@ import { addNewPost } from '../api';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
+// Authenticated Users can create a new post
+
 const MakeNewPost = ({ token, fetchPosts, navigate }) => {
   const [Title, setTitle] = useState('');
   const [Description, setDescription] = useState('');

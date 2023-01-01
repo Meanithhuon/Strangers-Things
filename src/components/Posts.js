@@ -2,6 +2,9 @@ import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import {  deletePost } from '../api';
 
+// Unauthenticated Users can see a list of all posts
+// All users can filter posts with a simple text matcher  
+
 const Search = ( props ) => {
   const {posts, token} = props
   const [searchTerm, setSearchTerm] = useState('');
@@ -88,19 +91,18 @@ useEffect(() => {
                 isAuthor ? (
                   <button onClick={(event) => {event.preventDefault(); removePost(token, _id);
                   }}>Delete</button>
-                  ) : null}
-                    {
-                     
-                      <Link to={`/posts/${_id}`}>SEE MORE DETAILS</Link>  
-
-                    }
-                    </div>
-                  )
-                })
+                ) : null
               }
-            </div>
-    </>
-          )
+                {
+                  <Link to={`/posts/${_id}`}>SEE MORE DETAILS</Link>  
+                }
+              </div>
+            )
+          })
         }
+      </div>
+    </>
+    )
+}
 
 export default Search;

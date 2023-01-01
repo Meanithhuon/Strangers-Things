@@ -1,5 +1,7 @@
 const base = 'https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT'
 
+// A request to the endpoint to fetch an array of post objects
+
 export const getPosts = async(token) => {
   try {
     const response = await fetch(`${base}/posts`, {
@@ -14,6 +16,8 @@ export const getPosts = async(token) => {
     console.log('error')
   }
 }
+
+// This route is used to create a new user account
 
 export const register = async (username, password) => {
   try {
@@ -35,6 +39,8 @@ export const register = async (username, password) => {
     console.log('error')
   }
 }
+
+// This route is used for a user to login when they already have an account
 
 export const loginUser = async (username, password) => {
   try {
@@ -60,6 +66,7 @@ export const loginUser = async (username, password) => {
   }
 }
 
+// This route is used to grab an already logged in user’s relevant data
 
 export const getUser= async (token) => {
   try {
@@ -77,6 +84,8 @@ export const getUser= async (token) => {
     console.log('error')
   }
 }
+
+// A request to the endpoint to create a new post with a valid token  
 
 export const addNewPost= async (token, {title, description, price, location, willDeliver})=> {
   try {
@@ -104,6 +113,8 @@ export const addNewPost= async (token, {title, description, price, location, wil
   }
 }
 
+// A request to the endpoint to delete a post whose _id is equal to POST_ID with a valid token
+
 export const deletePost = async (token, _id)=> {
   try {
     console.log(token, _id)
@@ -121,6 +132,8 @@ export const deletePost = async (token, _id)=> {
     console.log('error')
   }
 }
+
+// A request to the endpoint to create a new message for a post whose _id is equal to POST_ID with a valid token
 
 export const SendMessage = async ({POST_ID, token, message}) => {
   try {
